@@ -188,17 +188,17 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-accent" />
-              <span className="text-sm">Message us</span>
+              <a href="https://wa.me/27720047019" className="text-sm hover:text-accent transition">Text us on +27 72 004 7019</a>
             </div>
             <div className="hidden sm:block text-muted-foreground">•</div>
             <div className="flex items-center gap-2">
               <Phone className="h-5 w-5 text-accent" />
-              <span className="text-sm">Call us</span>
+              <a href="tel:+27720047019" className="text-sm hover:text-accent transition">Call us on +27 72 004 7019</a>
             </div>
             <div className="hidden sm:block text-muted-foreground">•</div>
             <div className="flex items-center gap-2">
               <Mail className="h-5 w-5 text-accent" />
-              <span className="text-sm">Email us</span>
+              <a href="mailto:lm.studios.web@gmail.com" className="text-sm hover:text-accent transition">lm.studios.web@gmail.com</a>
             </div>
           </div>
         </div>
