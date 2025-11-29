@@ -18,6 +18,7 @@ type FormData = {
   name: string;
   email: string;
   phone: string;
+  preferredContact: string;
   projectType: string;
   projectStatus: string;
   budget: string;
@@ -30,6 +31,7 @@ const initialFormData: FormData = {
   name: "",
   email: "",
   phone: "",
+  preferredContact: "WhatsApp",
   projectType: "",
   projectStatus: "New Website Build",
   budget: "",
@@ -45,7 +47,7 @@ export function QuoteForm() {
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
 
-  const formSubmitEmail = process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL || "your-email@example.com";
+  const formSubmitEmail = "lm.studios.web@gmail.com"; // process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -114,10 +116,10 @@ export function QuoteForm() {
   ];
 
   const budgets = [
-      "Under $500",
-      "$500 - $1,500",
-      "$1,500 - $3,000",
-      "$3,000+"
+      "R1,500 - R2,500",
+      "R2,500 - R5,000",
+      "R5,000+",
+      "N/A"
   ];
 
   const timelines = [
@@ -132,6 +134,8 @@ export function QuoteForm() {
       "I need help creating content.",
       "I am still working on it."
   ];
+
+  const contactOptions = ["WhatsApp", "Call", "Email"];
 
   if (submissionSuccess || step === 4) {
       return (
@@ -195,29 +199,31 @@ export function QuoteForm() {
           <CardContent>
               {/* Step 1: Identity */}
               {step === 1 && (
-                  <div className="grid gap-6 sm:grid-cols-2">
-                      <div className="space-y-2 sm:col-span-2">
-                          <Label htmlFor="name">Full Name</Label>
-                          <Input
-                              id="name"
-                              name="name"
-                              required
-                              placeholder="John Doe"
-                              value={formData.name}
-                              onChange={handleChange}
-                          />
-                      </div>
-                      <div className="space-y-2">
-                          <Label htmlFor="email">Email</Label>
-                          <Input
-                              id="email"
-                              name="email"
-                              type="email"
-                              required
-                              placeholder="john@example.com"
-                              value={formData.email}
-                              onChange={handleChange}
-                          />
+                  <div className="grid gap-6">
+                      <div className="grid sm:grid-cols-2 gap-6">
+                          <div className="space-y-2">
+                              <Label htmlFor="name">Full Name</Label>
+                              <Input
+                                  id="name"
+                                  name="name"
+                                  required
+                                  placeholder="John Doe"
+                                  value={formData.name}
+                                  onChange={handleChange}
+                              />
+                          </div>
+                          <div className="space-y-2">
+                              <Label htmlFor="email">Email</Label>
+                              <Input
+                                  id="email"
+                                  name="email"
+                                  type="email"
+                                  required
+                                  placeholder="john@example.com"
+                                  value={formData.email}
+                                  onChange={handleChange}
+                              />
+                          </div>
                       </div>
                       <div className="space-y-2">
                           <Label htmlFor="phone">Phone Number</Label>
@@ -230,6 +236,25 @@ export function QuoteForm() {
                               value={formData.phone}
                               onChange={handleChange}
                           />
+                      </div>
+                      <div className="space-y-3">
+                          <Label>Preferred mode of contact</Label>
+                          <div className="grid grid-cols-3 gap-3">
+                              {contactOptions.map((option) => (
+                                  <div
+                                      key={option}
+                                      onClick={() => updateField("preferredContact", option)}
+                                      className={`
+                                          cursor-pointer border rounded-md p-3 text-sm font-medium text-center transition-all
+                                          ${formData.preferredContact === option
+                                              ? "border-accent bg-accent/100 ring-1 ring-accent text-accent-foreground"
+                                              : "border-border hover:border-accent/50 hover:bg-accent/5 text-muted-foreground"}
+                                      `}
+                                  >
+                                      {option}
+                                  </div>
+                              ))}
+                          </div>
                       </div>
                   </div>
               )}
@@ -268,7 +293,7 @@ export function QuoteForm() {
                                       className={`
                                           cursor-pointer border rounded-md px-4 py-3 text-sm font-medium transition-all
                                           ${formData.projectStatus === status
-                                              ? "border-accent bg-accent/10 ring-1 ring-accent text-accent-foreground"
+                                              ? "border-accent bg-accent/100 ring-1 ring-accent text-accent-foreground"
                                               : "border-border hover:border-accent/50 hover:bg-accent/5 text-muted-foreground"}
                                       `}
                                   >
@@ -293,7 +318,7 @@ export function QuoteForm() {
                                       className={`
                                           cursor-pointer border rounded-md p-3 text-sm font-medium text-center transition-all
                                           ${formData.budget === budget
-                                              ? "border-accent bg-accent/10 ring-1 ring-accent text-accent-foreground"
+                                              ? "border-accent bg-accent/100 ring-1 ring-accent text-accent-foreground"
                                               : "border-border hover:border-accent/50 hover:bg-accent/5 text-muted-foreground"}
                                       `}
                                   >
@@ -313,7 +338,7 @@ export function QuoteForm() {
                                       className={`
                                           cursor-pointer border rounded-md p-3 text-sm font-medium text-center transition-all
                                           ${formData.timeline === timeline
-                                              ? "border-accent bg-accent/10 ring-1 ring-accent text-accent-foreground"
+                                              ? "border-accent bg-accent/100 ring-1 ring-accent text-accent-foreground"
                                               : "border-border hover:border-accent/50 hover:bg-accent/5 text-muted-foreground"}
                                       `}
                                   >
@@ -333,7 +358,7 @@ export function QuoteForm() {
                                       className={`
                                           cursor-pointer border rounded-md p-3 text-sm font-medium transition-all
                                           ${formData.contentReadiness === item
-                                              ? "border-accent bg-accent/10 ring-1 ring-accent text-accent-foreground"
+                                              ? "border-accent bg-accent/100 ring-1 ring-accent text-accent-foreground"
                                               : "border-border hover:border-accent/50 hover:bg-accent/5 text-muted-foreground"}
                                       `}
                                   >
@@ -373,7 +398,7 @@ export function QuoteForm() {
 
               {step < 3 ? (
                   <Button onClick={nextStep} className="bg-accent text-accent-foreground hover:bg-accent/90" disabled={
-                        (step === 1 && (!formData.name || !formData.email || !formData.phone)) ||
+                        (step === 1 && (!formData.name || !formData.email || !formData.phone || !formData.preferredContact)) ||
                         (step === 2 && (!formData.projectType))
                   }>
                       Next Step <ArrowRight className="ml-2 h-4 w-4" />

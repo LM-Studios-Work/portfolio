@@ -13,9 +13,11 @@ export default function Home() {
             <div className="hidden md:flex gap-8">
               <a href="#packages" className="hover:text-accent transition">Services</a>
               <a href="#work" className="hover:text-accent transition">Our Work</a>
-              <a href="#contact" className="hover:text-accent transition">Contact</a>
+              <a href="#quote" className="hover:text-accent transition">Contact</a>
             </div>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Get Started</Button>
+            <a href="#quote">
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">Get Started</Button>
+            </a>
           </div>
         </nav>
 
@@ -33,7 +35,7 @@ export default function Home() {
               <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 View Packages <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-border hover:bg-card">
+              <Button size="lg" variant="outline" className="border-border hover:border-accent/50">
                 Learn More
               </Button>
             </div>
@@ -213,7 +215,7 @@ export default function Home() {
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li><a href="#" className="hover:text-foreground transition">About</a></li>
-                  <li><a href="#" className="hover:text-foreground transition">Contact</a></li>
+                  <li><a href="#quote" className="hover:text-foreground transition">Contact</a></li>
                 </ul>
               </div>
               <div>
