@@ -1,6 +1,7 @@
-import { CheckCircle2, ArrowRight, MessageCircle, Phone, Mail } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProjectCarousel from '@/components/ProjectCarousel'; // Import the new component
+import { QuoteForm } from '@/components/QuoteForm';
 
 export default function Home() {
   return (
@@ -191,31 +192,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section id="contact" className="py-20 px-6 bg-card/50 border-t border-border">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-4">Ready to Grow Your Business Online?</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Let's talk about your project and find the perfect package for your needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex items-center gap-2">
-                <MessageCircle className="h-5 w-5 text-accent" />
-                <span className="text-sm">Message us</span>
-              </div>
-              <div className="hidden sm:block text-muted-foreground">•</div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-5 w-5 text-accent" />
-                <span className="text-sm">Call us</span>
-              </div>
-              <div className="hidden sm:block text-muted-foreground">•</div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-accent" />
-                <span className="text-sm">Email us</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <QuoteForm />
 
         {/* Footer */}
         <footer className="border-t border-border py-12 px-6">
