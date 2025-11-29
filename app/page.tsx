@@ -18,24 +18,23 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* Hero Section */}
-        <section className="relative py-24 px-6 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
-          <div className="relative max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-balance">
-              Professional Web Design for <span className="text-accent">Growing Businesses</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
-              Clean, modern, and affordable websites that help small businesses build credibility and reach customers online.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                View Packages <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="border-border hover:bg-card">
-                Learn More
-              </Button>
-            </div>
+      {/* Hero Section Nothing*/}
+      <section className="relative py-24 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
+        <div className="relative max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-balance">
+            Professional Web Design for <span className="text-accent">Growing Businesses</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
+            Clean, modern, and affordable websites that help small businesses build credibility and reach customers online.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              View Packages <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button size="lg" variant="outline" className="border-border hover:bg-card">
+              Learn More
+            </Button>
           </div>
         </section>
 
