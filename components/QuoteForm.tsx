@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Loader2, CheckCircle2, ShoppingCart, Camera, Utensils, Building2, Rocket, HelpCircle, ArrowRight, ArrowLeft } from "lucide-react";
+import { Loader2, CheckCircle2, ShoppingCart, Camera, Utensils, Building2, Calendar, HelpCircle, ArrowRight, ArrowLeft } from "lucide-react";
 
 type FormData = {
   name: string;
@@ -104,7 +104,7 @@ export function QuoteForm() {
       { id: "portfolio", label: "Portfolio", icon: Camera },
       { id: "restaurant", label: "Restaurant", icon: Utensils },
       { id: "corporate", label: "Business/Corp", icon: Building2 },
-      { id: "landing", label: "Landing Page", icon: Rocket },
+      { id: "event", label: "Event Management", icon: Calendar },
       { id: "other", label: "Other / Not Sure", icon: HelpCircle },
   ];
 
