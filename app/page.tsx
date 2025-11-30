@@ -2,6 +2,7 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProjectCarousel from '@/components/ProjectCarousel'; // Import the new component
 import { QuoteForm } from '@/components/QuoteForm';
+import AboutUs from '@/components/AboutUs';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
             <div className="text-2xl font-bold tracking-tight">LM Studios</div>
             <div className="hidden md:flex gap-8">
               <a href="#packages" className="hover:text-accent transition">Services</a>
+              <a href="#about" className="hover:text-accent transition">About</a>
               <a href="#work" className="hover:text-accent transition">Our Work</a>
               <a href="#quote" className="hover:text-accent transition">Contact</a>
             </div>
@@ -183,6 +185,8 @@ export default function Home() {
           </div>
         </section>
 
+        <AboutUs />
+
         {/* Our Work Section (NEW) */}
         <section id="work" className="py-20 px-6 border-t border-border">
           <div className="max-w-4xl mx-auto">
@@ -214,7 +218,7 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-4">Company</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li><a href="#" className="hover:text-foreground transition">About</a></li>
+                  <li><a href="#about" className="hover:text-foreground transition">About</a></li>
                   <li><a href="#quote" className="hover:text-foreground transition">Contact</a></li>
                 </ul>
               </div>
