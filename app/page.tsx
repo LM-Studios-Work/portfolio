@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProjectsView from '@/components/ProjectCarousel'; // Renamed to ProjectsView
@@ -14,7 +15,16 @@ export default function Home() {
           {/* Navigation */}
           <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-              <div className="text-2xl font-bold tracking-tight">LM Studios</div>
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/logo.png"
+                  alt="LM Studios Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+                <div className="text-2xl font-bold tracking-tight">LM Studios</div>
+              </div>
               <div className="hidden md:flex gap-8">
                 <a href="#packages" className="hover:text-accent transition">Services</a>
                 <a href="#about" className="hover:text-accent transition">About</a>
