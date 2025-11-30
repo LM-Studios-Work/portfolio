@@ -232,7 +232,7 @@ export function QuoteForm() {
                               name="phone"
                               type="tel"
                               required
-                              placeholder="+1 (555) 000-0000"
+                              placeholder="+27 66 000 0000"
                               value={formData.phone}
                               onChange={handleChange}
                           />
