@@ -1,10 +1,10 @@
-import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProjectsView from '@/components/ProjectCarousel'; // Renamed to ProjectsView
 import { QuoteForm } from '@/components/QuoteForm';
 import AboutUs from '@/components/AboutUs';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import Packages from '@/components/Packages';
+import { Hero } from '@/components/Hero';
 
 export default function Home() {
   return (
@@ -27,29 +27,7 @@ export default function Home() {
             </div>
           </nav>
 
-          {/* Hero Section */}
-          <section className="relative py-24 px-6 overflow-hidden">
-            <div className="relative max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-balance">
-                Professional Web Design for <span className="text-accent">Growing Businesses</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
-                Clean, modern, and affordable websites that help small businesses build credibility and reach customers online.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#packages">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                    View Packages <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-                <a href="#about">
-                  <Button size="lg" variant="outline" className="border-border hover:border-accent/50">
-                    Learn More
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </section>
+          <Hero />
 
           <Packages />
 
