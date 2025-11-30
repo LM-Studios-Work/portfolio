@@ -34,5 +34,12 @@ export const projects: Project[] = [
         img: "/preview/gordian-malaka.png",
         url: "https://uvhu-portfolio-9rw1.vercel.app/",
         tags: ["Photography", "Videography","Portfolio"]
+    },
+    {
+        title: "Mothupi & Lesego - Wedding",
+        description: "A wedding invitation with an interactive map and a gift registry.",
+        img: "/preview/mothupi-and-lesego.png",
+        url: "https://mothupi-and-lesego.co.za",
+        tags: ["Wedding", "Event"]
     }
 ];
