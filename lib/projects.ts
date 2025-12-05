@@ -11,7 +11,7 @@ export const projects: Project[] = [
     title: "MR FLOAT - Transport Service",
     description:
       "A transport company in Zimbabwe that offers a wide array of services, including taxi rides, long-distance travel, car hire, airport shuttles, and package deliveries.",
-    img: "/preview/Float.webp",
+    img: "/preview/Float.png",
     url: "https://private-car-hire.vercel.app",
     tags: ["Transportation", "Booking"],
   },
