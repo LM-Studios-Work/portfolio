@@ -159,16 +159,16 @@ const ProjectsView: React.FC = () => {
                                     <ArrowRight className="h-6 w-6" />
                                 </button>
                             </div>
-                            <div className="glide__bullets flex justify-center gap-3 mt-8" data-glide-el="controls[nav]">
-                                {projects.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        className="glide__bullet w-3 h-3 rounded-full bg-border transition-all duration-300 hover:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-accent [&.glide__bullet--active]:bg-accent [&.glide__bullet--active]:w-8"
-                                        data-glide-dir={`=${index}`}
-                                        aria-label={`Go to slide ${index + 1}`}
-                                    ></button>
-                                ))}
-                            </div>
+                            {/*<div className="glide__bullets flex justify-center gap-3 mt-8" data-glide-el="controls[nav]">*/}
+                            {/*    {projects.map((_, index) => (*/}
+                            {/*        <button*/}
+                            {/*            key={index}*/}
+                            {/*            className="glide__bullet w-3 h-3 rounded-full bg-border transition-all duration-300 hover:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-accent [&.glide__bullet--active]:bg-accent [&.glide__bullet--active]:w-8"*/}
+                            {/*            data-glide-dir={`=${index}`}*/}
+                            {/*            aria-label={`Go to slide ${index + 1}`}*/}
+                            {/*        ></button>*/}
+                            {/*    ))}*/}
+                            {/*</div>*/}
                         </div>
                     </div>
                 )}
