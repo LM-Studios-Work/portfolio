@@ -7,6 +7,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ExternalLink, LayoutGrid, View } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 import '@glidejs/glide/dist/css/glide.core.min.css';
 
@@ -58,6 +65,13 @@ const ProjectsView: React.FC = () => {
     const glideRef = useRef<Glide | null>(null);
     const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('grid');
     const [isMobile, setIsMobile] = useState(false);
+    const [filter, setFilter] = useState<string>('All');
+
+    const filteredProjects = projects.filter(project =>
+        filter === 'All' ? true : project.type === filter
+    );
+
+    const projectTypes = ["All", "Portfolio", "Event Management", "Essential Business"];
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -69,7 +83,11 @@ const ProjectsView: React.FC = () => {
     const currentView = isMobile ? 'carousel' : viewMode;
 
     useEffect(() => {
-        if (currentView === 'carousel') {
+        if (currentView === 'carousel' && filteredProjects.length > 0) {
+            if (glideRef.current) {
+                glideRef.current.destroy();
+            }
+
             const glide = new Glide('.glide', {
                 type: 'carousel',
                 focusAt: 'center',
@@ -95,12 +113,12 @@ const ProjectsView: React.FC = () => {
                 }
             };
         }
-    }, [currentView]);
+    }, [currentView, filteredProjects]);
 
     return (
         <section id="work" className="py-20 px-6 border-t border-border">
             <div className="max-w-7xl mx-auto">
-                <div className="relative text-center mb-16">
+                <div className="relative text-center mb-8">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Work</h2>
                     <p className="text-lg text-muted-foreground">A look at some of the projects we're proud of.</p>
                     <div className="hidden md:flex items-center gap-1 p-1 rounded-lg border bg-background/50 absolute top-1/2 right-0 -translate-y-1/2">
@@ -123,20 +141,41 @@ const ProjectsView: React.FC = () => {
                     </div>
                 </div>
 
-                {currentView === 'grid' && (
+                <div className="flex justify-center mb-12">
+                    <Select onValueChange={setFilter} defaultValue={filter}>
+                        <SelectTrigger className="w-[240px] bg-background/80 backdrop-blur-sm">
+                            <SelectValue placeholder="Filter by type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {projectTypes.map(type => (
+                                <SelectItem key={type} value={type} className="capitalize">
+                                    {type}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+
+                {filteredProjects.length === 0 && (
+                    <div className="text-center py-16">
+                        <p className="text-muted-foreground">No projects found for this category.</p>
+                    </div>
+                )}
+
+                {currentView === 'grid' && filteredProjects.length > 0 && (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project) => (
+                        {filteredProjects.map((project) => (
                             <ProjectCard key={project.url} project={project} />
                         ))}
                     </div>
                 )}
 
-                {currentView === 'carousel' && (
+                {currentView === 'carousel' && filteredProjects.length > 0 && (
                     <div className="max-w-4xl mx-auto">
                         <div className="glide relative group">
                             <div className="glide__track overflow-visible" data-glide-el="track">
                                 <ul className="glide__slides flex">
-                                    {projects.map((project, index) => (
+                                    {filteredProjects.map((project, index) => (
                                         <li key={index} className="glide__slide h-full">
                                             <ProjectCard project={project} />
                                         </li>
@@ -159,16 +198,6 @@ const ProjectsView: React.FC = () => {
                                     <ArrowRight className="h-6 w-6" />
                                 </button>
                             </div>
-                            {/*<div className="glide__bullets flex justify-center gap-3 mt-8" data-glide-el="controls[nav]">*/}
-                            {/*    {projects.map((_, index) => (*/}
-                            {/*        <button*/}
-                            {/*            key={index}*/}
-                            {/*            className="glide__bullet w-3 h-3 rounded-full bg-border transition-all duration-300 hover:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-accent [&.glide__bullet--active]:bg-accent [&.glide__bullet--active]:w-8"*/}
-                            {/*            data-glide-dir={`=${index}`}*/}
-                            {/*            aria-label={`Go to slide ${index + 1}`}*/}
-                            {/*        ></button>*/}
-                            {/*    ))}*/}
-                            {/*</div>*/}
                         </div>
                     </div>
                 )}
