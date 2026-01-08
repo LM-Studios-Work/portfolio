@@ -13,7 +13,7 @@ export const projects: Project[] = [
     description:
       "A transport company in Zimbabwe that offers a wide array of services, including taxi rides, long-distance travel, car hire, airport shuttles, and package deliveries.",
     img: "/preview/FloatTest.png",
-    url: "https://private-car-hire.vercel.app",
+    url: "https://mrfloatlogistics.com/",
     type: "Essential Business",
     tags: ["Transportation", "Booking"],
   },
