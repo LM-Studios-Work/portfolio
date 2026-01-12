@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "A professional trading platform with real-time analytics and user-friendly interface.",
     img: "/preview/vuza-trading.png",
-    url: "https://vuzatrading.com",
+    url: "https://aluminiumweb.vercel.app/",
     type: "Essential Business",
     tags: ["Automated Security", "Aluminum Solutions", "CCTV", "Alarm Systems"],
   },
